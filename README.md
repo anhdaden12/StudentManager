@@ -1,0 +1,2 @@
+# StudentManager
+include core data
