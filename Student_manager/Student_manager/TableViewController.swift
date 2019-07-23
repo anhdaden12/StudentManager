@@ -18,6 +18,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.allowsMultipleSelection = true
         noContentView.frame = view.bounds
+        disPlaynodata(tableView)
     }
     
     
@@ -25,6 +26,11 @@ class TableViewController: UITableViewController {
         super.viewWillAppear(animated)
         fetchObject()
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        disPlaynodata(tableView)
+        tableView.reloadData()
     }
     
     
@@ -62,8 +68,11 @@ class TableViewController: UITableViewController {
         if data.isEmpty {
             tableView.tableFooterView = noContentView
             tableView.isScrollEnabled = false
+           
         }else {
+            noContentView.isHidden = true
             tableView.tableFooterView = UIView()
+           
         }
     }
     
@@ -74,7 +83,7 @@ class TableViewController: UITableViewController {
             data.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             disPlaynodata(tableView)
-            
+            tableView.reloadData()
         }
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -104,6 +113,7 @@ class TableViewController: UITableViewController {
             for item in items {
                 if let index = data.index(of: item) {
                     data.remove(at: index)
+                    
                 }
             }
             
@@ -121,6 +131,7 @@ class TableViewController: UITableViewController {
         if let index = tableView.indexPathForSelectedRow {
             vc.detailStudent = data[index.row]
             vc.indexPath = index
+            
         }
     }
   

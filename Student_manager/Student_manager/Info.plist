@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>icons8-identity-disc-48.png</string>
+	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>add photo for avatar</string>
+	<key>NSCameraUsageDescription</key>
+	<string>add photo for avatar</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
