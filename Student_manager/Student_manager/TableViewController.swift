@@ -65,12 +65,12 @@ class TableViewController: UITableViewController {
   
     
     fileprivate func disPlaynodata(_ tableView: UITableView) {
-        if data.isEmpty {
+        if data.count == 0 {
             tableView.tableFooterView = noContentView
             tableView.isScrollEnabled = false
            
         }else {
-            noContentView.isHidden = true
+            tableView.tableFooterView = nil
             tableView.tableFooterView = UIView()
            
         }
